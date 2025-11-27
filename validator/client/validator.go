@@ -1416,7 +1416,7 @@ func (v *validator) buildSignedRegReqs(
 	if time.Now().Before(v.genesisTime) {
 		return signedValRegRequests
 	}
-
+	cfg := params.BeaconConfig()
 	if v.ProposerSettings().DefaultConfig != nil && v.ProposerSettings().DefaultConfig.FeeRecipientConfig == nil && v.ProposerSettings().DefaultConfig.BuilderConfig != nil {
 		log.Warn("Builder is `enabled` in default config but will be ignored because no fee recipient was provided!")
 	}
